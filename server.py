@@ -6,6 +6,6 @@ def homePages():
     return render_template("index.html")
 
 @portfo.route('/<page>')
-def otherPages(page):
-    return render_template(f"{page}")
+def otherPage(page):
+    return render_template(f"{page}.html")
 
