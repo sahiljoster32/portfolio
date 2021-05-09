@@ -36,19 +36,13 @@ def Compare_hashed_values(hashed_list, hashed_to_with_compare):
 def main(values):
     for item in values:
         count = password_to_hashed(item)
-        if count != 0:
-            print(f"---------------{item} was found-----------------") 
-            print(f"{count}")
-            print("times ... you should change your password\n\n")
-        else:
-            print(f"************************yeah your password {item} is never appear in breacher's set************************\n")
-    return "Now, you know where to go!!!"
+        return count
 
 # this function is for taking arguments from terminal -----------
 # 1st function --------------------------------------------------
-if __name__ == "__main__":
-    list_argument = sys.argv[1:]
-    main(list_argument)
+def pass_main(pass_value):
+    split_pass = pass_value.split(" ")
+    return main(split_pass)
 
 #this function is for taking passwords from text or anyother readable format file-------------
 # 2nd function -------------------------------------------------------------------------------

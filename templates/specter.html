@@ -16,15 +16,74 @@
 
   <title>contact_shushi</title>  
 
-<link href="../static/main.3f6952e4.css" rel="stylesheet"></head>
+  <link href="../static/main.3f6952e4.css" rel="stylesheet"></head>
+  <style>
+    textarea.form-control {
+    height: auto;
+    opacity: 0.6;
+    background-color: #d5a4d9;
+    }
+    questpass{
+    color: #c00;
+    }
+    anspass{
+    color: chartreuse;
+    }
+    buttonBold{
+      color: cornsilk;
+    }
+    .btn-lg {
+    padding: 10px 16px;
+    font-size: 14px;
+    line-height: 1.33333;
+    border-radius: 8px;
+    }
+    .btn-default{
+    color: #fff;
+    background-color: #dd0bf0;
+    border-color: #fff;
+    }
+    output {
+    display: block;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.78;
+    color: #ffffff;
+}
 
-<body class="">
+    .form-control{
+    display: block;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.78;
+    color: #7c0072;
+    }
+
+    .form-control {
+    width: 100%;
+    height: 40px;
+    padding: 8px 14px;
+    opacity: 0.7;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 12px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: 5px 5px 20px;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+  </style>
+
+</head>
+<body class="minimal">
 <div id="site-border-left"></div>
 <div id="site-border-right"></div>
 <div id="site-border-top"></div>
 <div id="site-border-bottom"></div>
 <header>
-  <nav class="navbar  navbar-fixed-top navbar-default">
+  <nav class="navbar  navbar-fixed-top navbar-inverse">
     <div class="container">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -35,10 +94,10 @@
 
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav ">
-          <li><a href="./index" title="">01 : Home</a></li>
-          <li><a href="./works" title="">02 : Works</a></li>
-          <li><a href="./about" title="">03 : About me</a></li>
-          <li><a href="./contact" title="">04 : Contact</a></li>
+          <li><a href="./index" title=""><buttonBold><b>01 : Home</b></buttonBold></a></li>
+          <li><a href="./works" title=""><buttonBold><b>02 : Works</b></buttonBold></a></li>
+          <li><a href="./about" title=""><buttonBold><b>03 : About me</b></buttonBold></a></li>
+          <li><a href="./contact" title=""><buttonBold><b>04 : Contact</b></buttonBold></a></li>
         </ul>
 
 
@@ -47,64 +106,68 @@
   </nav>
 </header>
 
-<div class="section-container">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="section-container-spacer text-center">
-            <h1 class="h2">01 : Vulnerability of Password</h1>
-          </div>
-          
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-               <form action="submit_data" method="POST" class="reveal-content">
-                  <div class="row">
-                    <div class="col-md-7">
-                      <div class="form-group">
-                        <input type="name" class="form-control" id="name" name="Name" placeholder="Name">
+<div class="hero-full-container background-image-container white-text-container" style="background-image: url('../static/assets/images/work_password.jpg')">
+  <div class="section-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section-container-spacer text-center">
+              <h1 class="h2">01 : Vulnerability of Password</h1>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <form action="value_pass" method="GET" class="reveal-content">
+                    <div class="row">
+                      <div class="col-md-7">
+                        <div class="form-group">
+                          <input type="name" class="form-control" id="name" name="name" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                          <textarea class="form-control" background-color="transparent" rows="5" id="text" name="password" placeholder="Enter your passwords"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default btn-lg">check</button>
                       </div>
-                      <div class="form-group">
-                        <textarea class="form-control" rows="5" id="text" name="password" placeholder="Enter your passwords"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-default btn-lg">check</button>
-                    </div>
-                    <div class="col-md-5 address-container">
-                            <div class="row">
-                              <div class="col-xs-12">
-                                <div class="hero-full-wrapper">
-                                  <div class="text-content">
-                                    <h3>Hello,<br>
-                                      <span id="typed-strings">
-                                        <span>I'm Sahil jhangar</span>
-                                        <span>python learner!!</span>
-                                        <span>listening lofi 🎵</span>
-                                      </span>
-                                      <span id="typed"></span>
-                                    </h3>
+                      <div class="col-md-5 address-container">
+                                    <div class="text-content">
+                                      <h3>
+                                        {% if value %}
+                                        Hey 👋,
+                                        {% elif count_pass %}
+                                        <questpass>Hey 👋,</questpass>
+                                        {% else %}
+                                        <anspass>Hey 👋,</anspass>
+                                        {% endif %}
+                                      <br>
+                                        <span id="typed-strings">
+                                          <span>
+                                            {% if value %}
+                                              {{password_string}}
+                                            {% elif count_pass %}
+                                              <questpass>{{password_string}}</questpass>
+                                            {% else %}
+                                              <anspass>{{password_string}}</anspass>
+                                            {% endif %}
+                                          </span>
+                                        </span>
+                                        <span id="typed"></span>
+                                      </h3>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                      </div>
                     </div>
-                  </div>
-                </form>
+                  </form>
+              </div>
             </div>
-          </div>
-       </div>
-      </div>
-    </div>
-  </div>
-
-
-  <footer class="footer-container text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <p>by sahil jhangar with 💓</p>
+        </div>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</div>
+  
 
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
