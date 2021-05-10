@@ -1,6 +1,10 @@
 from flask import Flask, render_template, url_for, request
 import csv
 import password as ps
+import requests
+import art_sticker as provider
+
+
 portfo = Flask(__name__)
 
 @portfo.route('/')
@@ -13,7 +17,7 @@ def specter_shower():
 
 @portfo.route('/<page>')
 def otherPage(page):
-    return render_template(f"{page}.html")
+    return render_template(f"{page}.html")          
 
 @portfo.route("/submit_data" , methods = ["POST", "GET"])
 def form_submition():
@@ -39,6 +43,7 @@ def password_provider():
         flag = False
     return render_template("specter.html", password_string = f"Password {pass_password} is appeared in {count} hacks", count_pass = flag)
 
-# @portfo.route("/value_pass", methods = ["POST", "GET"])
-# def password_provider():
-#     pass
+@portfo.route("/art/<userstring>/<category>")
+def random_image_provider(userstring, category=None):
+    provider.imageProvider(userstring, category)
+    return "done!!!!!!!!"
