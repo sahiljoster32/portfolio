@@ -38,3 +38,7 @@ def password_provider():
     if count == 0:
         flag = False
     return render_template("specter.html", password_string = f"Password {pass_password} is appeared in {count} hacks", count_pass = flag)
+
+# @portfo.route("/value_pass", methods = ["POST", "GET"])
+# def password_provider():
+#     pass
