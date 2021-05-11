@@ -47,4 +47,4 @@ def password_provider():
 def random_image_provider():
     queries_data = request.args.to_dict()
     provider.imageProvider(queries_data["userstring"], queries_data["category"])
-    return render_template("index.html")
+    return render_template("operator.html" , userstring = queries_data["userstring"], category = queries_data["category"] )

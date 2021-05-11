@@ -1,5 +1,5 @@
 import requests
-
+import csv
 def imageProvider(userstring, category):
     category_values = {
             "human" : "set5",
@@ -14,5 +14,9 @@ def imageProvider(userstring, category):
         request_string = f"https://robohash.org/{userstring}?set={users_value}"
     response_image = requests.get(request_string)
     final_image = response_image.content
-    with open("./static/assets/images/current.jpg" , "wb") as askedimage:
-        askedimage.write(final_image)
+    with open("image_art_provider.csv","a") as provider:
+        writer = csv.writer(provider)
+        row_value = [userstring, users_value]
+        writer.writerow(row_value)
+        with open("./static/assets/images/current.jpg" , "wb") as askedimage:
+            askedimage.write(final_image)
