@@ -43,7 +43,8 @@ def password_provider():
         flag = False
     return render_template("specter.html", password_string = f"Password {pass_password} is appeared in {count} hacks", count_pass = flag)
 
-@portfo.route("/art/<userstring>/<category>")
-def random_image_provider(userstring, category=None):
-    provider.imageProvider(userstring, category)
-    return "done!!!!!!!!"
+@portfo.route("/phantom", methods= ["POST","GET"])
+def random_image_provider():
+    queries_data = request.args.to_dict()
+    provider.imageProvider(queries_data["userstring"], queries_data["category"])
+    return render_template("index.html")
