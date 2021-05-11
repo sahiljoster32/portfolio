@@ -9,21 +9,21 @@ portfo = Flask(__name__)
 
 @portfo.route('/')
 def homePages():
-    S = 10
+    S = 20
     ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))
     random_string = str(ran) 
     return render_template("index.html", source_icon = f"https://robohash.org/{random_string}?set=set4")
 
 @portfo.route("/specter" , methods = ["POST", "GET"])
 def specter_shower():
-    S = 10
+    S = 20
     ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))
     random_string = str(ran) 
     return render_template("specter.html", password_string = "Enter your password's value.", value = True, source_icon = f"https://robohash.org/{random_string}?set=set4")
 
 @portfo.route('/<page>')
 def otherPage(page):
-    S = 10
+    S = 20
     ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))
     random_string = str(ran)
     if page == "index":
