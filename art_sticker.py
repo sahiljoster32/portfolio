@@ -1,4 +1,3 @@
-import requests
 import csv
 def imageProvider(userstring, category):
     category_values = {
@@ -6,17 +5,15 @@ def imageProvider(userstring, category):
             "kitten" : "set4",
             "monster" : "set2",
             "robots" : "set3",
-            "peaky_robos" : "set1"}
-    users_value = category_values[f"{category}"]
-    if category == None:
+            "peaky_robos" : "set1"} 
+    users_value = ""
+    if category == "":
         request_string = f"https://robohash.org/{userstring}"
     else :
+        users_value = category_values[f"{category}"]
         request_string = f"https://robohash.org/{userstring}?set={users_value}"
-    response_image = requests.get(request_string)
-    final_image = response_image.content
-    with open("image_art_provider.csv","a") as provider:
-        writer = csv.writer(provider)
-        row_value = [userstring, users_value]
-        writer.writerow(row_value)
-        with open("./static/assets/images/current.jpg" , "wb") as askedimage:
-            askedimage.write(final_image)
+    with open("image_art_provider.csv", "a") as provider:
+        image_info = csv.writer(provider)
+        image_info.writerow([userstring,users_value])
+    return request_string
+    

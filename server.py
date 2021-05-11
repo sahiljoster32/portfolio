@@ -1,23 +1,42 @@
 from flask import Flask, render_template, url_for, request
 import csv
 import password as ps
-import requests
 import art_sticker as provider
-
+import string 
+import random
 
 portfo = Flask(__name__)
 
 @portfo.route('/')
 def homePages():
-    return render_template("index.html")
+    S = 10
+    ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))
+    random_string = str(ran) 
+    return render_template("index.html", source_icon = f"https://robohash.org/{random_string}?set=set4")
 
 @portfo.route("/specter" , methods = ["POST", "GET"])
 def specter_shower():
-    return render_template("specter.html", password_string = "Enter your password's value.", value = True)
+    S = 10
+    ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))
+    random_string = str(ran) 
+    return render_template("specter.html", password_string = "Enter your password's value.", value = True, source_icon = f"https://robohash.org/{random_string}?set=set4")
 
 @portfo.route('/<page>')
 def otherPage(page):
-    return render_template(f"{page}.html")          
+    S = 10
+    ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S))
+    random_string = str(ran)
+    if page == "index":
+        set_value = "set4"
+    if page == "works":
+        set_value = "set1"
+    if page == "about":
+        set_value = "set5"
+    if page == "contact":
+        set_value = "set2" 
+    else:
+        set_value = "set4"   
+    return render_template(f"{page}.html", source_icon = f"https://robohash.org/{random_string}?set={set_value}")          
 
 @portfo.route("/submit_data" , methods = ["POST", "GET"])
 def form_submition():
@@ -46,5 +65,5 @@ def password_provider():
 @portfo.route("/phantom", methods= ["POST","GET"])
 def random_image_provider():
     queries_data = request.args.to_dict()
-    provider.imageProvider(queries_data["userstring"], queries_data["category"])
-    return render_template("operator.html" , userstring = queries_data["userstring"], category = queries_data["category"] )
+    source_image =  provider.imageProvider(queries_data["userstring"], queries_data["category"])
+    return render_template("operator.html" , userstring = queries_data["userstring"], category = queries_data["category"], source_image =source_image)
