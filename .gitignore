@@ -252,9 +252,9 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # SQL Server files
-*.mdf
-*.ldf
-*.ndf
+.mdf
+.ldf
+.ndf
 
 # Business Intelligence projects
 *.rdl.data
@@ -349,3 +349,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 set
+.ark
