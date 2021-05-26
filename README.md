@@ -8,6 +8,8 @@
 ---
 ### want to run it on your device?
 - install first flask module or you can add virtual environment in your directory.
+- the former step can be done by giving the command `pip install -r requirements.txt`.
+- this will install all required dependencies and module, that required to run this site on your pc.
 - run `set FLASK_APP=server.py` in your command prompt*.
 - then run `set FLASK_ENV=development`
 - finally run `flask run`
