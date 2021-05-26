@@ -3,7 +3,7 @@
 ### description of website.
 - A self representing web site which showcase all projects.
 - all projects in this are based on python.
-- initially portfolio was taken from templates given by `https://cruip.com/` and https://www.creative-tim.com/bootstrap-themes/ui-kit?direction=asc&sort=price
+- initially portfolio was taken from templates given by `https://cruip.com/` and `https://www.creative-tim.com/bootstrap-themes/ui-kit?direction=asc&sort=price`
 - some pages are not liked by some persons but take it as frankly.
 ---
 ### want to run it on your device?
@@ -15,6 +15,6 @@
 ---
 ### server side
 - server side was done with flask framework.
-- and other will uploaded in some_python_projects.
+- And other projects that will be used in this sever.py, already uploaded in some_python_projects repo.
 ---
-#### made by sahil jhangar 🖊️
+#### made by sahil jhangar 🖊️ with 💓
